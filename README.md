@@ -30,7 +30,7 @@ A sophisticated chatbot application built with Flask and Google's Gemini AI, fea
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/Siddanagowda/Chat-Bot>
 cd chatbot
 ```
 
