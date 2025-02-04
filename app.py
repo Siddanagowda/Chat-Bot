@@ -276,19 +276,20 @@ def chat():
                 prompt = create_structured_prompt(user_message)
                 response = model.generate_content(prompt)
                 
-                # Check AI response for safety before sending
-                is_safe, violations = content_guardian.check_content(response.text)
-                if not is_safe:
-                    warning_message = "⚠️ The AI's response contained potentially inappropriate content."
-                    response_text = content_guardian.get_safe_response(violations)
-                    return jsonify({
-                        'response': response_text,
-                        'warning': warning_message,
-                        'chat_id': chat_id,
-                        'violations': [v['name'] for v in violations]
-                    })
-                else:
-                    response_text = response.text
+                # # Check AI response for safety before sending
+                # is_safe, violations = content_guardian.check_content(response.text)
+                # if not is_safe:
+                #     warning_message = "⚠️ The AI's response contained potentially inappropriate content."
+                #     response_text = content_guardian.get_safe_response(violations)
+                #     return jsonify({
+                #         'response': response_text,
+                #         'warning': warning_message,
+                #         'chat_id': chat_id,
+                #         'violations': [v['name'] for v in violations]
+                #     })
+                # else:
+                    # response_text = response.text
+                response_text = response.text
             
             if not hasattr(response, 'text') or not response.text:
                 raise Exception("Empty response from Gemini API")
